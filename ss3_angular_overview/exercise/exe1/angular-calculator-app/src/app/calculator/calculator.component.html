@@ -1,0 +1,13 @@
+<h1>Calculator</h1>
+<p>Number one</p>
+<input type="number" #number1><br><br>
+<select #operator>
+  <option>+</option>
+  <option>-</option>
+  <option>*</option>
+  <option>/</option>
+</select><br>
+<p>Number two</p>
+<input type="number" #number2><br><br>
+<button type="button" (click)="calculate(number1.value,operator.value,number2.value)">=</button>
+<h3>Result : {{result}}</h3>
