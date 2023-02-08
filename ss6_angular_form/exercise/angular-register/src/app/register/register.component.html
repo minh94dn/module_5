@@ -1,0 +1,33 @@
+<h1>Register</h1>
+<form [formGroup]="userForm" (ngSubmit)="createUser()">
+<br>Create User<br>
+  <label>Email</label>
+  <input formControlName="email" name="email"><br>
+  <p style="color: red" *ngIf="userForm.controls.email.hasError('required') && userForm.controls.email.touched">Email không được để trống</p>
+  <p style="color: red" *ngIf="userForm.controls.email.hasError('pattern')">Email không đúng định dạng</p>
+  <label>Password</label>
+  <input type="password" #password formControlName="password" name="password"><br>
+  <p style="color: red" *ngIf="userForm.controls.password.hasError('required') && userForm.controls.password.touched">Password không được để trống</p>
+  <p style="color: red" *ngIf="userForm.controls.password.hasError('minlength')">Password phải nhìu hơn 6 ký tự</p>
+  <label>Confirm Password</label>
+  <input type="password" #confirm formControlName="confirmPassword" name="confirmPassword"><br>
+<!--  <p style="color: red" *ngIf="userForm.controls.password.hasError('required') && userForm.controls.password.touched">Password không được để trống</p>-->
+  <p style="color: red" *ngIf="password.value != confirm.value && userForm.controls.confirmPassword.dirty">Không giống ở trên</p>
+  <label>Country</label>
+  <select formControlName="country" name="country">
+    <option *ngFor="let c of countryList" [ngValue]="c.name">{{c.name}}</option>
+  </select><br>
+  <label>Age</label>
+  <input formControlName="age" name="age"><br>
+  <p style="color: red" *ngIf="userForm.controls.age.hasError('required') && userForm.controls.age.touched">Tuổi không được để trống</p>
+  <p style="color: red" *ngIf="userForm.controls.age.hasError('min')">Tuổi phải lớn hơn 18</p>
+  <label>Gender</label>
+  <input type="radio" formControlName="gender" value="true" name="gender">Nam
+  <input type="radio" formControlName="gender" value="false" name="gender">NỮ
+  <br>
+  <label>Phone</label>
+  <input formControlName="phone" name="phone"><br>
+  <p style="color: red" *ngIf="userForm.controls.phone.hasError('required') && userForm.controls.phone.touched">SĐT không được để trống</p>
+  <p style="color: red" *ngIf="userForm.controls.phone.hasError('min')">SĐT không đúng định dạng +84xxxxxxxxx</p>
+  <input type="submit" value="Thêm mới">
+</form>
