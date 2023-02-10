@@ -29,16 +29,6 @@
         "id": 2,
         "name": "bbb"
       }
-    },
-    {
-      "id": 7,
-      "name": "zsdtry",
-      "price": 6,
-      "description": "rtfcuyuygyiouiph",
-      "category": {
-        "id": 1,
-        "name": "aaa"
-      }
     }
   ],
   "categorys": [

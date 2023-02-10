@@ -23,6 +23,10 @@ export class ProductEditComponent implements OnInit {
   product: Product;
   category: Category[] = [];
 
+  compareWith(o1: Category, o2: Category) {
+    return o1 && o2 ? o1.id === o2.id : o1 === o2;
+  };
+
   constructor(private productService: ProductService,
               private  activatedRoute: ActivatedRoute,
               private router: Router,

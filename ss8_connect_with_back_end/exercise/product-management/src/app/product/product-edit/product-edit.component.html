@@ -20,7 +20,7 @@
     <tr>
       <td>Thể loại</td>
       <td>
-        <select formControlName="category">
+        <select formControlName="category" [compareWith]="compareWith">
           <option *ngFor="let item of category" [ngValue]="item">{{item.name}}</option>
         </select>
       </td>

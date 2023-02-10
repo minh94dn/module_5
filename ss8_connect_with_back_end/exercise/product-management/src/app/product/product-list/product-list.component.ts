@@ -9,9 +9,7 @@ import {ProductService} from "../../service/product.service";
 })
 export class ProductListComponent implements OnInit {
   products: Product[] = [];
-  idDelete: number;
-  nameDelete: string;
-  temp: Product ={};
+  temp: Product = {};
 
   constructor(private productService: ProductService) {
   }
@@ -21,10 +19,11 @@ export class ProductListComponent implements OnInit {
   }
 
   getAll() {
-   return this.productService.getAll().subscribe(next => {
-     this.products = next;
-   });
+    return this.productService.getAll().subscribe(next => {
+      this.products = next;
+    });
   }
+
   //
   // deleteModal(id: number, name: string) {
   //   this.idDelete = id;
@@ -33,8 +32,7 @@ export class ProductListComponent implements OnInit {
 
   delete(idDelete: number) {
     if (idDelete != null) {
-      return this.productService.deleteProduct(this.temp.id).subscribe(data=>{
-        console.log(data)
+      return this.productService.deleteProduct(this.temp.id).subscribe(data => {
         alert('Xoa thanh cong');
         this.getAll();
       })
