@@ -1,0 +1,54 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "name": "Bàn",
+      "price": 100,
+      "description": "Tốt",
+      "category": {
+        "id": 1,
+        "name": "aaa"
+      }
+    },
+    {
+      "id": 1111,
+      "name": "111",
+      "price": 1111,
+      "description": "1111",
+      "category": {
+        "id": 1,
+        "name": "aaa"
+      }
+    },
+    {
+      "id": 5,
+      "name": "fhfgj",
+      "price": 16,
+      "description": "rytuifffffff",
+      "category": {
+        "id": 2,
+        "name": "bbb"
+      }
+    },
+    {
+      "id": 7,
+      "name": "zsdtry",
+      "price": 6,
+      "description": "rtfcuyuygyiouiph",
+      "category": {
+        "id": 1,
+        "name": "aaa"
+      }
+    }
+  ],
+  "categorys": [
+    {
+      "id": 1,
+      "name": "aaa"
+    },
+    {
+      "id": 2,
+      "name": "bbb"
+    }
+  ]
+}
