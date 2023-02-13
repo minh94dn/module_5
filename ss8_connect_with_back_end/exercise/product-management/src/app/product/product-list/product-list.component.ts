@@ -1,6 +1,9 @@
 import {Component, OnInit} from '@angular/core';
 import {Product} from "../../model/product";
 import {ProductService} from "../../service/product.service";
+import {Category} from "../../model/category";
+import {CategoryService} from "../../service/category.service";
+import {element} from "protractor";
 
 @Component({
   selector: 'app-product-list',
@@ -9,9 +12,13 @@ import {ProductService} from "../../service/product.service";
 })
 export class ProductListComponent implements OnInit {
   products: Product[] = [];
+  categorys: Category[] = [];
   temp: Product = {};
-
-  constructor(private productService: ProductService) {
+  id: number;
+  constructor(private productService: ProductService, private categoryService: CategoryService) {
+    this.categoryService.getAll().subscribe(next => {
+      this.categorys = next;
+    })
   }
 
   ngOnInit(): void {
@@ -37,5 +44,18 @@ export class ProductListComponent implements OnInit {
         this.getAll();
       })
     }
+  }
+
+  findByCategory(event: string) {
+    if(!(isNaN(parseInt(event)))) {
+      this.productService.findByCategory(parseInt(event)).subscribe(next => {
+        this.products = next;
+      })
+    } else {
+      this.productService.getAll().subscribe(next => {
+        this.products = next;
+      })
+    }
+
   }
 }

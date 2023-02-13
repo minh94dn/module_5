@@ -1,17 +1,35 @@
 <h1>Tạo sản phẩm mới</h1>
 <form [formGroup]="productForm" (ngSubmit)="saveProduct()">
   <table>
-    <tr>
-      <td>Mã sản phẩm:</td>
-      <td><input type="number" formControlName="id"></td>
-    </tr>
+<!--    <tr>-->
+<!--      <td>Mã sản phẩm:</td>-->
+<!--      <td><input type="number" formControlName="id">-->
+<!--      -->
+<!--      </td>-->
+<!--    </tr>-->
     <tr>
       <td>Tên sản phẩm:</td>
-      <td><input type="text" formControlName="name"></td>
+      <td><input type="text" formControlName="name"> <br>
+      <span *ngIf="productForm.controls.name.hasError('required') && productForm.controls.name.touched" style="color: red">Tên không được bỏ trống</span>
+      </td>
     </tr>
     <tr>
       <td>Giá sản phẩm</td>
       <td><input type="number" formControlName="price"></td>
+    </tr>
+    <tr>
+      <td>Ngày bắt đầu</td>
+      <td><input type="date" formControlName="start"> <Br>
+        <span *ngIf="productForm.hasError('today') && productForm.controls.start.dirty">Ngày Ngày bắt đầu phải lớn hơn ngày hiện tại</span>
+
+      </td>
+    </tr>
+    <tr>
+      <td>Ngày kết thúc</td>
+      <td><input type="date" formControlName="end"> <br>
+      <span *ngIf="productForm.hasError('invalidDate')">Ngày kết thúc phải lớn hơn ngày bắt đầu</span>
+      <span *ngIf="productForm.controls.end.hasError('pattern')">khòng đứng định dạng</span>
+      </td>
     </tr>
     <tr>
       <td>Mô tả về sản phẩm</td>
@@ -28,7 +46,7 @@
     </tr>
     <tr>
       <td></td>
-      <td><button>Tạo mới</button></td>
+      <td><button >Tạo mới</button></td>
     </tr>
   </table>
 </form>

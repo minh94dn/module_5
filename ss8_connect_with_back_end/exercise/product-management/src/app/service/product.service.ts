@@ -28,6 +28,14 @@ export class ProductService {
   }
 
   deleteProduct(id: number) {
-   return this.httpClient.delete("http://localhost:3000/products/" + id);
+    return this.httpClient.delete("http://localhost:3000/products/" + id);
+  }
+
+  findByCategory(id: number): Observable<Product[]> {
+    return this.httpClient.get<Product[]>("http://localhost:3000/products?category.id=" + id);
+  }
+
+  findByName(name: string): Observable<Product[]> {
+    return this.httpClient.get<Product[]>("http://localhost:3000/products?name_like" + name);
   }
 }

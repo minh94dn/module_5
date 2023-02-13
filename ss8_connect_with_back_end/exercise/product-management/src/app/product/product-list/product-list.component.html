@@ -1,10 +1,16 @@
 <h1>Danh sách sản phẩm</h1>
+<select  (change)="findByCategory(element.value)" #element>
+  <option  [value]="'z'" >Tất Cả</option>
+  <option *ngFor="let x of categorys" [value]="x.id" >{{x.name}}</option>
+</select>
 <table class="table table-striped">
   <thead>
   <tr>
     <td>STT</td>
     <td>Tên</td>
     <td>Giá</td>
+    <td>ngày bắt đầu</td>
+    <td>ngày kết thúc</td>
     <td>Mô tả</td>
     <td>Thể loại</td>
     <td>Sửa</td>
@@ -16,6 +22,8 @@
     <td>{{i + 1}}</td>
     <td>{{product.name}}</td>
     <td>{{product.price}}</td>
+    <td>{{product.start}}</td>
+    <td>{{product.end}}</td>
     <td>{{product.description}}</td>
     <td>{{product.category?.name}}</td>
     <td><a [routerLink]="['/product/edit',product.id]">Edit</a></td>
