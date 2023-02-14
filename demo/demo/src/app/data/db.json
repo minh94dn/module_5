@@ -1,0 +1,88 @@
+{
+  "customers": [
+    {
+      "id": 1,
+      "customerType": {
+        "id": 1,
+        "name": "Diamond"
+      },
+      "name": "Trần Văn Sỹ",
+      "dateOfBirth": "20-05-1997",
+      "gender": true,
+      "idCard": "194623960",
+      "phoneNumber": "0969500694",
+      "email": "tranvansy205@gmail.com",
+      "address": "Quảng Bình"
+    },
+    {
+      "id": 2,
+      "customerType": {
+        "id": 1,
+        "name": "Diamond"
+      },
+      "name": "wererwerw",
+      "dateOfBirth": "2023-02-16",
+      "gender": true,
+      "idCard": "111",
+      "phone": "111111",
+      "email": "1111",
+      "address": "1111"
+    },
+    {
+      "id": 3,
+      "customerType": {
+        "id": 2,
+        "name": "Gold"
+      },
+      "name": "fdsfdfs",
+      "dateOfBirth": "0022-02-22",
+      "gender": false,
+      "idCard": "222",
+      "phone": "22222",
+      "email": "2222",
+      "address": "222"
+    },
+    {
+      "id": 4,
+      "customerType": {
+        "id": 2,
+        "name": "Gold"
+      },
+      "name": "a",
+      "dateOfBirth": "0001-11-11",
+      "gender": false,
+      "idCard": "111",
+      "phoneNumber": "111",
+      "email": "11",
+      "address": "111"
+    },
+    {
+      "id": 5,
+      "customerType": {
+        "id": 1,
+        "name": "Diamond"
+      },
+      "name": "A",
+      "dateOfBirth": "0022-02-22",
+      "gender": true,
+      "idCard": "222",
+      "phoneNumber": "222",
+      "email": "22",
+      "address": "222"
+    }
+  ],
+  "customerTypes": [
+    {
+      "id": 1,
+      "name": "Diamond"
+    },
+    {
+      "id": 2,
+      "name": "Gold"
+    },
+    {
+      "id": 3,
+      "name": "Silver"
+    }
+  ]
+}
