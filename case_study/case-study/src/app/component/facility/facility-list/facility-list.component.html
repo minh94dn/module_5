@@ -1,0 +1,88 @@
+<h1 style="text-align: center; margin: 10px auto">List Facility</h1>
+<div class="row mt-2">
+  <div class="col-lg-12 d-flex justify-content-center align-items-center">
+    <form class="d-flex">
+      <input class="form-control me-2" name="name" type="search" placeholder="Search name" aria-label="Search">
+      <input class="form-control me-2" name="facilityType" type="search" placeholder="Search facility type"
+             aria-label="Search">
+      <button class="btn btn-outline-success" type="submit">Search</button>
+    </form>
+  </div>
+</div>
+
+<table class="table table-striped mt-3">
+  <thead>
+  <tr>
+    <th>STT</th>
+    <th>Facility Name</th>
+    <th>Area</th>
+    <th>Cost</th>
+    <th>Max People</th>
+    <th>Standard Room</th>
+    <th>Description Other Convenience</th>
+    <th>Pool Area</th>
+    <th>Number Of Floors</th>
+    <th>Facility Free</th>
+    <th>Facility Type</th>
+    <th>Rent Type</th>
+    <th></th>
+    <th style="text-align: center"><a routerLink="/facility/create">
+      <button type="submit"><img
+        src="https://img.icons8.com/ios/50/null/add-user-group-man-man--v1.png" width="30"/></button>
+    </a></th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let facility of facilitys; index as i">
+    <td>{{i + 1}}</td>
+    <td>{{facility.facilityName}}</td>
+    <td>{{facility.area}}</td>
+    <td>{{facility.cost}}</td>
+    <td>{{facility.maxPeople}}</td>
+    <td>{{facility.rentType.name}}</td>
+    <td>{{facility.facilityType.name}}</td>
+    <td>{{facility.standardRoom}}</td>
+    <td>{{facility.descriptionOtherConvenience}}</td>
+    <td>{{facility.poolArea}}</td>
+    <td>{{facility.numberOfFloors}}</td>
+    <td>{{facility.facilityFree}}</td>
+<!--    <td>-->
+<!--      &lt;!&ndash; Button trigger modal &ndash;&gt;-->
+<!--&lt;!&ndash;      <button type="button" (click)="facility = item" class="btn btn-sm btn-outline-danger" data-bs-toggle="modal" data-bs-target="#delete">&ndash;&gt;-->
+<!--&lt;!&ndash;        Delete&ndash;&gt;-->
+<!--&lt;!&ndash;      </button>&ndash;&gt;-->
+<!--    </td>-->
+    <td>
+      <!-- Button trigger modal -->
+<!--      <button type="button" (click)="getFacilityEdit(item)" class="btn btn-primary"-->
+<!--              [routerLink]="['/facility-edit']">-->
+<!--        Edit-->
+<!--      </button>-->
+    </td>
+    <td>
+      <button type="button" class="btn btn-primary" (click)="temp = facility" data-bs-toggle="modal" data-bs-target="#exampleModal">
+        Xóa
+      </button>
+    </td>
+  </tr>
+  </tbody>
+</table>
+xóa bằng modal
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <span>Bạn có muốn xóa dich vụ </span><span style="color: red">{{temp.facilityName}}</span><span> này không ?</span>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Hủy</button>
+        <button type="button" (click)="delete(temp.id)" data-bs-dismiss="modal" class="btn btn-primary">Xóa</button>
+      </div>
+    </div>
+  </div>
+</div>
+

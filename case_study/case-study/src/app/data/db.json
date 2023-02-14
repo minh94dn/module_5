@@ -1,0 +1,52 @@
+{
+  "facilitys": [
+    {
+      "id": 2,
+      "facilityName": "Sỹ",
+      "area": 100,
+      "cost": 100,
+      "maxPeople": 10,
+      "rentType": {
+        "id": 2,
+        "name": "Month"
+      },
+      "facilityType": {
+        "id": 1,
+        "name": "House"
+      },
+      "standardRoom": "vip",
+      "descriptionOtherConvenience": "aaa",
+      "poolArea": 10,
+      "numberOfFloors": 10,
+      "facilityFree": "aaa"
+    }
+  ],
+  "rentTypes": [
+    {
+      "id": 1,
+      "name": "Year"
+    },
+    {
+      "id": 2,
+      "name": "Month"
+    },
+    {
+      "id": 3,
+      "name": "Day"
+    }
+  ],
+  "facilityTypes": [
+    {
+      "id": 1,
+      "name": "House"
+    },
+    {
+      "id": 2,
+      "name": "Room"
+    },
+    {
+      "id": 3,
+      "name": "Villa"
+    }
+  ]
+}
