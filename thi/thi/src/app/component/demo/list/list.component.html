@@ -1,0 +1,66 @@
+
+<h1 style="text-align: center; margin: 10px auto">List Customer</h1>
+
+
+<table class="table table-striped mt-3">
+  <thead>
+  <tr>
+    <th>STT</th>
+    <th>Mã Bệnh Án</th>
+    <th>Mã Bệnh Nhân</th>
+    <th>Tên Bệnh Nhân</th>
+    <th>Ngày Nhập Viện</th>
+    <th>Ngày Ra Viện</th>
+    <th>Lý Do Nhập Viện</th>
+    <th>Phương Pháp Điều Trị</th>
+    <th>Bác SỸ Điều Trị</th>
+    <th></th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let medicalRecord of medicalRecords; index as i">
+    <td>{{i + 1}}</td>
+    <td>{{medicalRecord.code}}</td>
+    <td>{{medicalRecord.codePatient}}</td>
+    <td>{{medicalRecord.namePatient}}</td>
+    <td>{{medicalRecord.startDate}}</td>
+    <td>{{medicalRecord.endDate}}</td>
+    <td>{{medicalRecord.reason}}</td>
+    <td>{{medicalRecord.treatments}}</td>
+    <td>{{medicalRecord.nameDoctors}}</td>
+    <td>
+      <button type="button" class="btn btn-outline-primary" [routerLink]="['/benhAn/edit', medicalRecord.id]">
+        Edit
+      </button>
+    </td>
+    <td>
+      <button type="button" class="btn btn-outline-danger" (click)="temp = medicalRecord" data-bs-toggle="modal"
+              data-bs-target="#exampleModal">
+        Xóa
+      </button>
+    </td>
+  </tr>
+  </tbody>
+</table>
+<div class="row">
+
+  <!--xóa bằng modal-->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-hegenderader">
+          <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <span>Bạn có muốn xóa dich vụ </span><span
+          style="color: red">{{temp.id}}</span><span> này không ?</span>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Hủy</button>
+          <button type="button" (click)="delete(temp.id)" data-bs-dismiss="modal" class="btn btn-primary">Xóa</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

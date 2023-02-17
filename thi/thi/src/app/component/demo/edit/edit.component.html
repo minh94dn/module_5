@@ -1,0 +1,49 @@
+
+<div class="row">
+  <div class="col-md-3"></div>
+  <div class="col-md-6" style="background: #e9f2ef">
+    <h1 class="text-center">Edit benh an</h1>
+    <form [formGroup]="benhAnForm" (ngSubmit)="editBenhAn(id)">
+<!--      <div class="mb-3">-->
+<!--        <label class="form-label fw-bold">Tên Bệnh Án</label>-->
+<!--        <select class="form-select" formControlName="benhAn" [compareWith]="compareWith">-->
+<!--          <option value="">Customer Type Name</option>-->
+<!--          <option *ngFor="let item of benhNhans" [ngValue]="item">{{item.name}}</option>-->
+<!--        </select>-->
+<!--      </div>-->
+      <div class="mb-3">
+        <label class="form-label fw-bold">Tên Bênh Nhân</label>
+        <input type="text" class="form-control" formControlName="tenBenhNhan">
+        <span *ngIf="benhAnForm.hasError('required')">ko dc phep đẻ trong</span>
+      </div>
+      <div class="mb-3">
+        <label class="form-label fw-bold">Ngay Nhập Viện</label>
+        <input type="date" class="form-control" formControlName="ngayNhapVien">
+        <span *ngIf="benhAnForm.hasError('required')">ko dc phep đẻ trong</span>
+      </div>
+      <div class="mb-3">
+        <label class="form-label fw-bold">Ngay Ra Viện</label>
+        <input type="date" class="form-control" formControlName="ngayRaVien">
+        <span *ngIf="benhAnForm.hasError('required')">ko dc phep đẻ trong</span>
+        <span *ngIf="benhAnForm.hasError('invalidDate')">Ngày kết thúc phải lớn hơn ngày bắt đầu</span>
+      </div>
+      <div class="mb-3">
+        <label class="form-label fw-bold">Lý Do</label>
+        <input type="text" class="form-control" formControlName="lyDo">
+        <span *ngIf="benhAnForm.hasError('required')">ko dc phep đẻ trong</span>
+      </div>
+      <div class="mb-3">
+        <label class="form-label fw-bold">Phương Pháp</label>
+        <input type="text" class="form-control" formControlName="phuongPhap">
+        <span *ngIf="benhAnForm.hasError('required')">ko dc phep đẻ trong</span>
+      </div>
+      <div class="mb-3">
+        <label class="form-label fw-bold">Bác Sỹ</label>
+        <input type="text" class="form-control" formControlName="bacSy">
+        <span *ngIf="benhAnForm.hasError('required')">ko dc phep đẻ trong</span>
+      </div>
+      <button type="submit" class="btn btn-primary">Save</button>
+    </form>
+  </div>
+  <div class="col-md-3"></div>
+</div>
