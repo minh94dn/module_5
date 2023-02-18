@@ -1,4 +1,3 @@
-
 <h1 style="text-align: center; margin: 10px auto">List Customer</h1>
 
 
@@ -46,24 +45,31 @@
   </tr>
   </tbody>
 </table>
-<div class="row">
 
-  <!--xóa bằng modal-->
-  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-hegenderader">
-          <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-          <span>Bạn có muốn xóa dich vụ </span><span
-          style="color: red">{{temp.id}}</span><span> này không ?</span>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Hủy</button>
-          <button type="button" (click)="delete(temp.id)" data-bs-dismiss="modal" class="btn btn-primary">Xóa</button>
-        </div>
+<!--phân trang-->
+<div style="text-align: center">
+  <button (click)="getAll(numberPage - 1)">Back</button>
+  <span>{{numberPage + 1 + "/" + totalPage}}</span>
+  <button (click)="getAll(numberPage + 1)">Next</button>
+</div>
+
+
+
+<!--xóa bằng modal-->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-hegenderader">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <span>Bạn có muốn xóa dich vụ </span><span
+        style="color: red">{{temp.id}}</span><span> này không ?</span>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Hủy</button>
+        <button type="button" (click)="delete(temp.id)" data-bs-dismiss="modal" class="btn btn-primary">Xóa</button>
       </div>
     </div>
   </div>

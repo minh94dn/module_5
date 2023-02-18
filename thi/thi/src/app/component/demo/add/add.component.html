@@ -5,40 +5,50 @@
     <h1 class="text-center">Thêm Mới Bệnh Án</h1>
     <form [formGroup]="medicalRecordForm" (ngSubmit)="createBenhAn()">
       <div class="mb-3">
-        <label class="form-label fw-bold">Mã Bênh Nhân</label>
+        <label class="form-label fw-bold">Mã Bênh Án</label>
         <input type="text" class="form-control" formControlName="code">
-<!--        <span *ngIf="medicalRecordForm.hasError('required')">ko dc phep đẻ trong</span>-->
+                <span *ngIf="medicalRecordForm.controls.code.hasError('required')" style="color: red">ko dc phep đẻ trong</span>
+                <span *ngIf="codeError">{{codeError}}</span>
+                <span *ngIf="medicalRecordForm.controls.code.hasError('pattern')" style="color: red">Mã bênh án không đúng định đạng BA-xxx</span>
+      </div>
+      <div class="mb-3">
+        <label class="form-label fw-bold">Mã Bênh Nhân</label>
+        <input type="text" class="form-control" formControlName="codePatient">
+        <span *ngIf="medicalRecordForm.controls.codePatient.hasError('required')" style="color: red">ko dc phep đẻ trong</span>
+        <span *ngIf="medicalRecordForm.controls.codePatient.hasError('pattern')" style="color: red">Mã bênh án không đúng định đạng BN-xxx</span>
       </div>
       <div class="mb-3">
         <label class="form-label fw-bold">Tên Bênh Nhân</label>
         <input type="text" class="form-control" formControlName="namePatient">
-<!--        <span *ngIf="medicalRecordForm.hasError('required')">ko dc phep đẻ trong</span>-->
+        <span *ngIf="medicalRecordForm.controls.namePatient.hasError('required')" style="color: red">ko dc phep đẻ trong</span>
+        <span *ngIf="medicalRecordForm.controls.namePatient.hasError('pattern')" style="color: red">Tên bệnh nhân không được chứa ký tự số</span>
       </div>
       <div class="mb-3">
         <label class="form-label fw-bold">Ngay Nhập Viện</label>
         <input type="date" class="form-control" formControlName="startDate">
-<!--        <span *ngIf="medicalRecordForm.hasError('required')">ko dc phep đẻ trong</span>-->
+        <span *ngIf="medicalRecordForm.controls.startDate.hasError('required')" style="color: red">ko dc phep đẻ trong</span>
       </div>
       <div class="mb-3">
         <label class="form-label fw-bold">Ngay Ra Viện</label>
         <input type="date" class="form-control" formControlName="endDate">
-<!--        <span *ngIf="medicalRecordForm.hasError('required')">ko dc phep đẻ trong</span>-->
-<!--        <span *ngIf="medicalRecordForm.hasError('invalidDate')">Ngày kết thúc phải lớn hơn ngày bắt đầu</span>-->
+        <span *ngIf="medicalRecordForm.hasError('required')" style="color: red">ko dc phep đẻ trong</span>
+        <span *ngIf="medicalRecordForm.hasError('invalidDate')" style="color: red">Ngày kết thúc phải lớn hơn ngày bắt đầu</span>
       </div>
       <div class="mb-3">
         <label class="form-label fw-bold">Lý Do</label>
         <input type="text" class="form-control" formControlName="reason">
-<!--        <span *ngIf="medicalRecordForm.hasError('required')">ko dc phep đẻ trong</span>-->
+        <span *ngIf="medicalRecordForm.controls.reason.hasError('required')" style="color: red">ko dc phep đẻ trong</span>
       </div>
       <div class="mb-3">
-        <label class="form-label fw-bold">Phương Pháp</label>
+        <label class="form-label fw-bold">Phương Pháp</label>.\
         <input type="text" class="form-control" formControlName="treatments">
-<!--        <span *ngIf="medicalRecordForm.hasError('required')">ko dc phep đẻ trong</span>-->
+        <span *ngIf="medicalRecordForm.controls.treatments.hasError('required')" style="color: red">ko dc phep đẻ trong</span>
       </div>
       <div class="mb-3">
         <label class="form-label fw-bold">Bác Sỹ</label>
         <input type="text" class="form-control" formControlName="nameDoctors">
-<!--        <span *ngIf="medicalRecordForm.hasError('required')">ko dc phep đẻ trong</span>-->
+        <span *ngIf="nameDoctorsError">{{nameDoctorsError}}</span>
+        <span *ngIf="medicalRecordForm.controls.nameDoctors.hasError('required')" style="color: red">ko dc phep đẻ trong</span>
       </div>
       <button type="submit" class="btn btn-primary">Save</button>
     </form>

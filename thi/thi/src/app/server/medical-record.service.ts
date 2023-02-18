@@ -11,9 +11,8 @@ export class MedicalRecordService {
   constructor(private httpClient: HttpClient) {
   }
 
-  // @ts-ignore
-  getAll(): Observable<MedicalRecord[]> {
-    return this.httpClient.get<MedicalRecord[]>('http://localhost:8080/benhAns');
+  getAll(numberPage: number ): Observable<any> {
+    return this.httpClient.get<any>('http://localhost:8080/benhAns?page=' + numberPage);
   }
 
   delete(id: number) {
@@ -21,14 +20,14 @@ export class MedicalRecordService {
   }
 
   add(medicalRecord: MedicalRecord) {
-    return this.httpClient.post('http://localhost:8080/benhAns', medicalRecord);
+    return this.httpClient.post('http://localhost:8080/benhAns/add', medicalRecord);
   }
 
   findById(id: number): Observable<MedicalRecord[]> {
-    return this.httpClient.get<MedicalRecord[]>('http://localhost:3000/benhAns/' + id);
+    return this.httpClient.get<MedicalRecord[]>('http://localhost:8080/benhAns/' + id);
   }
 
-  editBenhAn(benhAn: MedicalRecord) {
-    return this.httpClient.put<MedicalRecord>('http://localhost:3000/benhAns', benhAn);
+  editBenhAn(medicalRecord: MedicalRecord) {
+    return this.httpClient.put('http://localhost:8080/benhAns/edit', medicalRecord);
   }
 }

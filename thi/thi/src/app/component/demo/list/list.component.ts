@@ -12,18 +12,28 @@ export class ListComponent implements OnInit {
   medicalRecords: MedicalRecord[] = [];
   temp: MedicalRecord={};
 
+  numberPage: number;
+  totalPage: number;
+  first: boolean;
+  last: boolean;
+
   constructor(private medicalRecordService: MedicalRecordService,) {
 
 
-    this.getAll();
+    this.getAll(this.numberPage);
   }
 
   ngOnInit(): void {
   }
 
-  getAll(){
-    return this.medicalRecordService.getAll().subscribe(next => {
-      this.medicalRecords = next;
+  getAll(numberPage: number){
+    return this.medicalRecordService.getAll(numberPage).subscribe(next => {
+      console.log(next);
+      this.medicalRecords = next.content;
+      this.numberPage = next.number;
+      this.totalPage = next.totalPages;
+      this.first = next.first;
+      this.last = next.last;
     })
   }
 
@@ -32,7 +42,7 @@ export class ListComponent implements OnInit {
       console.log(id);
       this.medicalRecordService.delete(this.temp.id).subscribe(next => {
         alert('Xóa thành công')
-        this.getAll();
+        this.getAll(this.numberPage);
       })
     }
   }
