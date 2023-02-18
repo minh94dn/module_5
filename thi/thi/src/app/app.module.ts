@@ -11,6 +11,7 @@ import { ListComponent } from './component/demo/list/list.component';
 import { EditComponent } from './component/demo/edit/edit.component';
 import { HttpClientModule} from '@angular/common/http';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { AddComponent } from './component/demo/add/add.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
     FooterComponent,
     BodyComponent,
     ListComponent,
-    EditComponent
+    EditComponent,
+    AddComponent
   ],
   imports: [
     BrowserModule,
